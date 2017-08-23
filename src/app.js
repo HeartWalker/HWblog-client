@@ -1,8 +1,9 @@
-import react, {Component} from 'react';
-import reactDOM from 'react-dom';
+import React, {Component} from 'react';
 
+import './app.css';
+import './main.scss';
 
-class App extends Component {
+export default class App extends Component {
     render(){
         return (
             <div className="app">
@@ -12,4 +13,3 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
