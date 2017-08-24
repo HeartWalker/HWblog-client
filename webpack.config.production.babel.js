@@ -2,6 +2,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';//抽离css样式 单独打包
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
     entry: { //入口文件 key 为之后使用的 name
@@ -18,6 +19,7 @@ module.exports = {
         rules: [ //webpack 1 版本的loaders 升级为rules
             {
                 test: /\.jsx?$/, // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
+                exclude: path.resolve(__dirname, 'node_modules/'),
                 use: 'babel-loader', //不再支持缩写 加载模块 "babel"
             },
             {
@@ -57,7 +59,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: 'url?limit=25000&name=img/[name].[ext]' // 对25000b 的图片会被编译成字节码 name=后的是字节大于25000的输出路径 在output 配置的path之后
+                use: 'url-loader?limit=25000&name=imgs/[name].[ext]' // 对25000b 的图片会被编译成字节码 name=后的是字节大于25000的输出路径 在output 配置的path之后
             }
         ]
     },
@@ -81,16 +83,28 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({
+        new webpack.optimize.CommonsChunkPlugin({// 分离第三方应用插件 提取公共js
             name: 'vendors', // 这公共代码的chunk名为'vendors'
             filename: '[name].js', // 生成后的文件名，虽说用了[name]，但实际上就是'vendors.js'了
             minChunks: 4, // 设定要有4个chunk（即4个页面）加载的js模块才会被纳入公共代码。这数目自己考虑吧，我认为3-5比较合适。
-        }), // 分离第三方应用插件 提取公共js
+        }),
+        new HtmlWebpackPlugin({  //根据模板插入css/js等生成最终HTML
+            filename: './index.html', //生成的html存放路径，相对于 path
+            template: './index.html', //html模板路径
+            minify: { //压缩 https://github.com/kangax/html-minifier#options-quick-reference
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true, // 移除属性的引号
+                showErrors: false
+            },
+            hash: true,
+        }),
         new ExtractTextPlugin('[name].css'), // [name]对应的是chunk的name
         //new webpack.optimize.DedupePlugin(), // 去重 已被移除
         // 压缩
         new webpack.optimize.UglifyJsPlugin({
             compress: {
+                //sourceMap: true,
                 warnings: false
             }
         })
