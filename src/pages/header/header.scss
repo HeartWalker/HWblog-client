@@ -1,0 +1,23 @@
+header {
+  background: #578ae3;
+}
+.container {
+  padding:20px 0;
+  max-width:1200px;
+  width: 86%;
+  //margin:0 auto;
+  margin-left:8%;
+}
+.imglogo {
+  width:125px;
+  padding: 0 20px;
+  img {
+    width:100%;
+    border-radius: 10px;
+  }
+}
+.textlogo {
+  font-size:56px;
+  color:#fff;
+  margin:0;
+}

@@ -1,0 +1,24 @@
+
+body {
+  background: #ddd no-repeat center/cover fixed;
+  font-family: Helvetica, Tahoma, Arial, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, STXihei, “华文细黑”, Heiti, “黑体”, sans-serif;
+}
+
+.fl {
+  float:left;
+}
+.fr {
+  float:right;
+}
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /*IE/7/6*/
+}
