@@ -92,10 +92,14 @@ module.exports = {
             filename: './index.html', //生成的html存放路径，相对于 path
             template: './index.html', //html模板路径
             minify: { //压缩 https://github.com/kangax/html-minifier#options-quick-reference
+                removeComments: true,
                 collapseInlineTagWhitespace: true,
                 collapseWhitespace: true,
                 removeAttributeQuotes: true, // 移除属性的引号
-                showErrors: false
+                showErrors: false,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
             },
             hash: true,
         }),
