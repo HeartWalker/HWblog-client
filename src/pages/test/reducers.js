@@ -1,4 +1,4 @@
-import {TEXT_TODO} from './actionTypes';
+import {TEST_TODO} from './actionTypes';
 
 const initialState = {
     test: 1,
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        case 'TEST_TODO':
+        case TEST_TODO:
             return {
                 ...state,
                 data: action.data
