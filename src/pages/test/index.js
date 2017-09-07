@@ -6,19 +6,26 @@ import './test.scss';
 class Test extends Component{
     constructor(props){
         super(props);
-        this.click = this.click.bind(this);
+        //this.click = this.click.bind(this);
+        this.state = {
+            value: ''
+        }
     }
 
-    click(){
-        console.log('1');
-        console.log(this.props.data);
-        this.props.dispatch(test());
+    click = ()=>{
+        this.props.dispatch(test(this.state.value));
+    }
+    change = (event) => {
+        this.setState({
+            value: event.target.value
+        });
     }
     render(){
         return (
             <div className="test">
-                <p>{this.props.text}</p>
-                <p>{this.props.data}</p>
+                <p style={{color:'red'}}>{this.props.text}</p>
+                <p>{this.props.data || '显示输入内容'}</p>
+                <input type="text" value={this.state.value} onChange={this.change}/>
                 <input type="button" onClick={this.click} value="button"/>
             </div>
         )
@@ -31,7 +38,7 @@ function mapStateToProps(state, ownprops) {
        data: state.testStroe.data,
     }
 }
-function mapDispatchToProps(dispatch, ownprops) {
+function mapDispatchToProps(dispatch, ownprops) {//使用此函数会拦截 dispatch
     return {
 
     }

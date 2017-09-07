@@ -10,5 +10,9 @@
     ],
     "react"
   ],
-  "plugins": ["transform-object-rest-spread"]
+  "plugins": [//插件的顺序可能会带来问题
+    "transform-class-properties",
+    "transform-es2015-arrow-functions",
+    "transform-object-rest-spread"
+  ]
 }

@@ -5,9 +5,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';//抽离css样式 �
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
+    devtool: 'source-map',
     entry: { //入口文件 key 为之后使用的 name
         app: path.resolve(__dirname,'./index.js'),
-        vendors: ['react', 'react-dom']
+        vendors: ['react', 'react-dom','redux','react-redux','react-router-dom','react-markdown']
     },
     output: {
         path: path.resolve(__dirname, './dist'), // 输出文件根目录\
@@ -27,8 +28,13 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
-                        "css-loader",
+                        {
+                            loader: "css-loader", options: {
+                            sourceMap: true
+                        }
+                        },
                         { loader: 'postcss-loader', options: {
+                            sourceMap: true,
                             plugins: [require('autoprefixer')({ browsers: ['last 10 Chrome versions', 'last 5 Firefox versions', 'Safari >= 6', 'ie >= 8'] })]
                         } },
                     ]
@@ -39,9 +45,17 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
-                        "css-loader",
-                        "sass-loader",
+                        {
+                            loader: "css-loader", options: {
+                            sourceMap: true
+                        }
+                        }, {
+                            loader: "sass-loader", options: {
+                                sourceMap: true
+                            }
+                        },
                         { loader: 'postcss-loader', options: {
+                            sourceMap: true,
                             plugins: [require('autoprefixer')({ browsers: ['last 10 Chrome versions', 'last 5 Firefox versions', 'Safari >= 6', 'ie >= 8'] })]
                         } },
                     ]
