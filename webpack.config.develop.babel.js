@@ -1,22 +1,15 @@
 
 import webpack from 'webpack';
-import webpackDevServer from 'webpack-dev-server';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';//抽离css样式 单独打包
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
     devtool: 'source-map',
-    entry:[
-        'react-hot-loader/patch','webpack/hot/only-dev-server','./index.js'
-    ]
-/*
-        { //入口文件 key 为之后使用的 name
-          hto:  'react-hot-loader/patch',
-         dev:   'webpack/hot/only-dev-server',
+    entry: { //入口文件 key 为之后使用的 name
         app: path.resolve(__dirname,'./index.js'),
         vendors: ['react', 'react-dom','redux','react-redux','react-router-dom','react-markdown']
-    }*/,
+    },
     output: {
         path: path.resolve(__dirname, './dist'), // 输出文件根目录\
         publicPath: '',
