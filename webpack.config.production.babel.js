@@ -108,7 +108,6 @@ module.exports = {
         // 压缩
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                //sourceMap: true,
                 warnings: false
             }
         })
