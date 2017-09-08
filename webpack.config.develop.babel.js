@@ -6,9 +6,12 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
     devtool: 'source-map',
-    entry: { //入口文件 key 为之后使用的 name
-        app: path.resolve(__dirname,'./index.js'),
-        vendors: ['react', 'react-dom','redux','react-redux','react-router-dom','react-markdown']
+    entry:{
+        vendors:['react-hot-loader/patch','react', 'react-dom','redux','react-redux','react-router-dom','react-markdown'],
+        'app':[
+            'webpack/hot/only-dev-server',
+            path.resolve(__dirname,'./index.js')
+        ]
     },
     output: {
         path: path.resolve(__dirname, './dist'), // 输出文件根目录\
