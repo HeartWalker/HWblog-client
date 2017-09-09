@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 module.exports = {
     devtool: 'source-map',
     entry:{
-        vendors:['react-hot-loader/patch','react', 'react-dom','redux','react-redux','react-router-dom','react-markdown'],
+        vendors:['react-hot-loader/patch','react', 'react-dom','redux','react-redux','react-router-dom','react-markdown','history','axios'],
         'app':[
             'webpack/hot/only-dev-server',
             path.resolve(__dirname,'./index.js')
@@ -111,6 +111,12 @@ module.exports = {
         hot: true,
         open: true,
         inline: true,
-        port: 9000
+        port: 9000,
+        proxy: {
+            "/article": {
+                target: "http://localhost:3001",
+                changeOrigin: true,
+            }
+        }
     }
 }

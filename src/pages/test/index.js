@@ -43,4 +43,4 @@ function mapDispatchToProps(dispatch, ownprops) {//使用此函数会拦截 disp
 
     }
 }
-export default connect(mapStateToProps)(Test)
+export default connect(mapStateToProps)(Test);

@@ -1,2 +1,21 @@
+import axios from 'axios';
+import {ARTICLE_DATA} from './actionTypes';
 
-import {ARTICLE_TODO} from './actionTypes';
+export function data(data) {
+    return (dispatch) => {
+        axios.get('/article/test')
+            .then(function (response) {
+                console.log(response)
+                dispatch({
+                    'type': ARTICLE_DATA,
+                    'data': response.data,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
+}
+

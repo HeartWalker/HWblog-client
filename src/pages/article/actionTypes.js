@@ -1,2 +1,2 @@
 
-export const ARTICLE_TODO = 'ARTICLE_TODO';
+export const ARTICLE_DATA = 'ARTICLE_DATA';

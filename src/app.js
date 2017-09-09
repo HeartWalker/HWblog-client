@@ -4,7 +4,6 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-import ReactMarkdown from 'react-markdown';
 
 import './css/style.scss';
 import Header from './pages/header';
@@ -12,18 +11,21 @@ import Footer from './pages/footer';
 import Test from './pages/test';
 import About from './pages/about';
 import Home from './pages/home';
+import Article from './pages/article';
 
-const input = '# This is a header\n\nAnd this is a paragraph';//使用markdown语法内容
+//import createHistory from 'history/createBrowserHistory';
+//const history = createHistory();
 
 
 export default class App extends Component {
     render(){
         return(
+            /*<Router history={history}>*/
             <Router>
                 <div>
                     <Header/>
                     <Test/>
-                    <ReactMarkdown source={input} />
+                    <Article/>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>

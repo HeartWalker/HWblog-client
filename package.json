@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/HeartWalker/HWblog-client#readme",
   "dependencies": {
+    "axios": "^0.16.2",
+    "history": "^4.7.2",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

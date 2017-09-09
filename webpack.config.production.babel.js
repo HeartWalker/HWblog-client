@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 module.exports = {
     entry: { //入口文件 key 为之后使用的 name
         app: path.resolve(__dirname,'./index.js'),
-        vendors: ['react', 'react-dom','redux','react-redux','react-router-dom','react-markdown']
+        vendors: ['react', 'react-dom','redux','react-redux','react-router-dom','react-markdown','history','axios']
     },
     output: {
         path: path.resolve(__dirname, './dist'), // 输出文件根目录\

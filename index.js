@@ -13,12 +13,11 @@ const render = () => {
                 <App />
             </Provider>
         </AppContainer>,
-        // document.querySelector('#container'),
         document.getElementById('root'),
     )
 }
 
-render()
+render();
 
 /*ReactDOM.render(
         <Provider store={store}>
@@ -27,12 +26,12 @@ render()
         document.getElementById('root')
     );*/
 if (module.hot) {
-    console.log(module.hot)
+    //console.log(module.hot)
     // module.hot.accept('components/App', () => {
     module.hot.accept((err) => {
         if (err) {
             console.error('Cannot apply hot update', err)
         }
-        render()
+        render();
     })
 }
