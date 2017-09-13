@@ -113,7 +113,7 @@ module.exports = {
         inline: true,
         port: 9000,
         proxy: {
-            "/article": {
+            "/api": {
                 target: "http://localhost:3001",
                 changeOrigin: true,
             }

@@ -3,7 +3,7 @@ import {ARTICLE_DATA} from './actionTypes';
 
 export function data(data) {
     return (dispatch) => {
-        axios.get('/article/test')
+        axios.get('/api/test')
             .then(function (response) {
                 console.log(response)
                 dispatch({

@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'), // 输出文件根目录\
-        publicPath: '',
+        publicPath: '/',
         filename: '[name].js',
         //chunkFilename: '[id].bundle.js',
     },
