@@ -1,6 +1,16 @@
+require("babel-register");
+
 const express = require('express');
 const path = require('path');
 const proxy = require('http-proxy-middleware');
+
+const webpack = require('webpack');
+const config = require('./webpack.config.production.babel.js');
+const compiler = webpack(config);
+compiler.run(function(err, stats) {
+    // ...
+});
+
 
 const app = express();
 

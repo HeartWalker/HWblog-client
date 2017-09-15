@@ -14,14 +14,16 @@ import About from './pages/about';
 import Home from './pages/home';
 import Article from './pages/article';
 
+/*
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
+*/
 
 
 export default class App extends Component {
     render(){
         return(
-            <Router history={history}>
+            <Router>
                 <div>
                     <Header/>
                     <Test/>
