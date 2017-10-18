@@ -22,3 +22,17 @@ body {
 .clearfix {
   *zoom: 1; /*IE/7/6*/
 }
+
+ol,ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.container {
+  padding:20px 0;
+  max-width:1200px;
+  width: 86%;
+  //margin:0 auto;
+  margin-left:8%;
+}
