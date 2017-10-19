@@ -9,11 +9,12 @@ class Article extends Component{
         super(props);
     }
     componentDidMount(){
-       this.props.dispatch(data());
+        console.log(this.props.match)
+       this.props.dispatch(data(this.props.match.params.time));
     }
     render(){
         return(
-            <ReactMarkdown source={this.props.data || 'data'} />
+            <ReactMarkdown source={this.props.data.content || 'data'} />
         )
     }
 }

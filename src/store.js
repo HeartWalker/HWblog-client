@@ -7,10 +7,12 @@ import thunk from 'redux-thunk';
 
 import testReducer from './pages/test/reducers';
 import articleReducer from './pages/article/reducers';
+import archivesReducer from './pages/archives/reducers';
 
 const reducer = combineReducers({
     testStroe: testReducer,
     articleStore: articleReducer,
+    archivesStore: archivesReducer,
 
 });
 

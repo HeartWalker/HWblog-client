@@ -1,15 +1,15 @@
-import axios from 'axios';
-import {ARTICLE_DATA} from './actionTypes';
 
-export function data(data) {
+import axios from 'axios';
+import {ARCHIVES_DATA} from './actionTypes';
+
+export function getArchives(data) {
     return (dispatch) => {
-        let api = `/api/archive/${data}`;
-        axios.get(api)
+        axios.get('/api/archives')
             .then(function (response) {
                 //console.log(response)
                 dispatch({
-                    'type': ARTICLE_DATA,
-                    'data': response.data,
+                    'type': ARCHIVES_DATA,
+                    'archives': response.data,
                 });
             })
             .catch(function (error) {
@@ -19,4 +19,3 @@ export function data(data) {
     }
 
 }
-
