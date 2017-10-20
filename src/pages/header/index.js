@@ -1,7 +1,8 @@
 
 import React, {Component} from 'react';
 import {
-    Link
+    Link,
+    NavLink,
 } from 'react-router-dom'
 import './header.scss';
 export default class Header extends Component {
@@ -15,10 +16,10 @@ export default class Header extends Component {
                     </div>
                     <h1 className="textlogo">hw</h1>
                     <ul className="nav">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/archive">Archive</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/topics">Topics</Link></li>
+                        <li><NavLink activeClassName='active' exact to="/">Home</NavLink></li>
+                        <li><NavLink activeClassName='active' to="/archive">Archive</NavLink></li>
+                        <li><NavLink activeClassName='active' to="/about">About</NavLink></li>
+                        <li><NavLink activeClassName='active' to="/topics">Topics</NavLink></li>
                     </ul>
                 </div>
             </header>

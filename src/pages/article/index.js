@@ -3,18 +3,34 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import {data} from './action';
+import styles from'./article.scss';
 
 class Article extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            data: this.props.data || {},
+        }
     }
+
     componentDidMount(){
-        console.log(this.props.match)
+        //console.log(this.props.match)
+       this.setState({data:{}})
        this.props.dispatch(data(this.props.match.params.time));
     }
+    componentWillReceiveProps(nextProps, nextState) {
+        this.setState({data:nextProps.data})
+    }
+
     render(){
         return(
-            <ReactMarkdown source={this.props.data.content || 'data'} />
+            <div>
+                <div className={styles.title + ' clearfix'} >{this.state.data.title}
+                    <p className={styles.date + ' fr'}>{this.state.data.date}</p>
+
+                </div>
+                <ReactMarkdown source={this.state.data.content || ''} />
+            </div>
         )
     }
 }

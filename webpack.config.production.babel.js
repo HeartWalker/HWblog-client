@@ -30,7 +30,9 @@ module.exports = {
                         {
                             loader: 'css-loader',
                             options:{
-                                minimize: true //css压缩
+                                minimize: true, //css压缩
+                                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+
                             }
                         },
                         { loader: 'postcss-loader', options: {
@@ -47,7 +49,8 @@ module.exports = {
                         {
                             loader: 'css-loader',
                             options:{
-                                minimize: true //css压缩
+                                minimize: true ,//css压缩
+                                localIdentName: '[path][name]__[local]--[hash:base64:5]',
                             }
                         },
                         "sass-loader",

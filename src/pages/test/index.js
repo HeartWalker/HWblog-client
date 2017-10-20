@@ -23,7 +23,7 @@ class Test extends Component{
     render(){
         return (
             <div className="test">
-                <p style={{color:'red'}}>{this.props.text}</p>
+                <div style={{color:'red'}}>{this.props.text}</div>
                 <p>{this.props.data || '显示输入内容'}</p>
                 <input type="text" value={this.state.value} onChange={this.change}/>
                 <input type="button" onClick={this.click} value="button"/>

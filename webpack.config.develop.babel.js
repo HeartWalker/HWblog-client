@@ -33,7 +33,11 @@ module.exports = {
                     use: [
                         {
                             loader: "css-loader", options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            /*getLocalIdent: (context, localIdentName, localName, options) => {
+                                return 'whatever_random_class_name'
+                            }*/
                         }
                         },
                         { loader: 'postcss-loader', options: {
@@ -50,7 +54,11 @@ module.exports = {
                     use: [
                         {
                             loader: "css-loader", options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            /*getLocalIdent: (context, localIdentName, localName, options) => {
+                             return 'whatever_random_class_name'
+                             }*/
                         }
                         }, {
                             loader: "sass-loader", options: {

@@ -1,7 +1,7 @@
 
 import {ARTICLE_DATA} from './actionTypes';
 const initialState = {
-    data: 'data',
+    data: {},
 };
 
 export default (state = initialState, action) => {
