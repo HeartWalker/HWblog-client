@@ -31,11 +31,11 @@ export default class App extends Component {
                     <Header/>
                     <Test/>
                     <div className='container contain'>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/topics" component={Topics}/>
-                    <Route exact path="/archive" component={Archives}/>
-                    <Route path={`/archive/:time`} component={Article}/>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/about" component={About}/>
+                        <Route path="/topics" component={Topics}/>
+                        <Route exact path="/archive" component={Archives}/>
+                        <Route path={`/archive/:time`} component={Article}/>
                     </div>
                     <Footer/>
                 </div>
