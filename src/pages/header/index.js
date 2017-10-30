@@ -16,10 +16,11 @@ export default class Header extends Component {
                     </div>
                     <h1 className="textlogo">hw</h1>
                     <ul className="nav">
-                        <li><NavLink activeClassName='active' exact to="/">Home</NavLink></li>
-                        <li><NavLink activeClassName='active' to="/archive">Archive</NavLink></li>
                         <li><NavLink activeClassName='active' to="/about">About</NavLink></li>
+                        <li><NavLink activeClassName='active' to="/archive">Archive</NavLink></li>
                         <li><NavLink activeClassName='active' to="/topics">Topics</NavLink></li>
+                        <li><NavLink activeClassName='active' exact to="/">Home</NavLink></li>
+
                     </ul>
                 </div>
             </header>

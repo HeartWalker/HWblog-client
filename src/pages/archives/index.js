@@ -10,7 +10,7 @@ class Archives extends Component {
     constructor(props){
         super(props);
         this.state = {
-            archives: this.props.archives||[],
+            archives: this.props.archives,
             archiveItme:[],
         }
     }
@@ -29,7 +29,9 @@ class Archives extends Component {
             archives,
         })*/
 
-
+        this.setState({
+            archives:nextProps.archives,
+        })
         let arr = [];
         let obj = {};
         this.props.archives.map((v, i)=>{
