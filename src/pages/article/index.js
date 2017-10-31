@@ -26,7 +26,7 @@ class Article extends Component{
         return(
             <div>
                 <div className={styles.title + ' clearfix'} >{this.state.data.title}
-                    <p className={styles.date + ' fr'}>{this.state.data.date}</p>
+                    <span className={styles.date + ' fr'}>{this.state.data.date}</span>
 
                 </div>
                 <ReactMarkdown source={this.state.data.content || ''} />

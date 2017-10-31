@@ -1,27 +1,27 @@
 import React, {Component} from 'react';
-import ReactMarkdown from 'react-markdown';
 import {connect} from 'react-redux';
 import {getPage} from './action';
 import ReactPaginate from 'react-paginate';
-import Article from '../article';
+import ReactMarkdown from 'react-markdown';
+
+import styles from'./home.scss';
 
 @connect(mapStateToProps)
 export default class Home extends Component{
     constructor(props){
         super(props);
         this.state = {
-            pages: this.props.pages ,
+            content: this.props.pages.content || [] ,
         }
     }
-    componentDidMonut(){
+    componentDidMount(){
         this.props.dispatch(getPage());
 
     }
     componentWillReceiveProps(nextProps){
-        let pages = [];
 
         this.setState({
-            pages,
+            content:nextProps.pages.content,
         })
     }
     render(){
@@ -29,12 +29,16 @@ export default class Home extends Component{
             <div>
                 <h2>Home</h2>
                 {
-                   /* this.state.pages.map((v,i)=>{
-                        return <div className="mtb15 bgf" key={v} >
-
+                    this.state.content.map((v,i)=>{
+                        return <div className="mtb15 bgf" key={i} >
+                            <div className={styles.title + ' clearfix'} >{v.title}
+                                <span className={styles.date + ' fr'}>{v.date}</span>
+                            </div>
+                            <ReactMarkdown source={v.content || ''} />
                         </div>
-                    })*/
+                    })
                 }
+
                 <ReactPaginate previousLabel={"previous"}
                                nextLabel={"next"}
                                breakLabel={<a href="">...</a>}
