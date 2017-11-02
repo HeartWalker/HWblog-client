@@ -3,6 +3,7 @@ import {
     HashRouter as Router,
     //BrowserRouter as Router,
     Route,
+    Switch
     //Link
 } from 'react-router-dom'
 
@@ -31,11 +32,15 @@ export default class App extends Component {
                     <Header/>
                     <Test/>
                     <div className='container contain'>
+                        <Switch>
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/page/:num" component={Home}/>
                         <Route path="/about" component={About}/>
                         <Route path="/topics" component={Topics}/>
                         <Route exact path="/archive" component={Archives}/>
                         <Route path={`/archive/:time`} component={Article}/>
+                        <Route component={NoMatch}/>
+                        </Switch>
                     </div>
                     <Footer/>
                 </div>
@@ -43,4 +48,10 @@ export default class App extends Component {
         )
     }
 }
+const NoMatch = ({ location }) => (
+    <div>
+        <h2>404404</h2>
+        <h3>No match for <code>{location.pathname}</code></h3>
+    </div>
+);
 
