@@ -10,7 +10,7 @@ class Archives extends Component {
     constructor(props){
         super(props);
         this.state = {
-            archives: this.props.archives,
+            archiveHash: false,
             archiveItme:[],
         }
     }
@@ -19,7 +19,7 @@ class Archives extends Component {
 
 
     }
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps,nextState){
         /*let archives = this.props.archives;
         if(nextProps.match.path != '/archive') {
 
@@ -29,12 +29,10 @@ class Archives extends Component {
             archives,
         })*/
 
-        this.setState({
-            archives:nextProps.archives,
-        })
+
         let arr = [];
         let obj = {};
-        this.props.archives.map((v, i)=>{
+        nextProps.archives.map((v, i)=>{
             if(!obj[v.archive]){
                 obj[v.archive] = 1;
                 arr.push(v.archive);
@@ -45,12 +43,13 @@ class Archives extends Component {
         })
     }
     fliterArchives = (archive) =>{
+
         let archives = this.props.archives.filter((v, i)=>{
                 return v.archive === archive
             })
 
         this.setState({
-            archives,
+            archiveHash:archives,
         })
     }
     render(){
@@ -71,7 +70,7 @@ class Archives extends Component {
                 </ul>
                 <ul className='right'>
                     {
-                        this.state.archives.map((v,i)=>{
+                        (this.state.archiveHash || this.props.archives).map((v,i)=>{
                           return   <li key={v.time}>
                                 <Link to={`${this.props.match.url}/${v.time}`} className="title">
                                     <span className='time'>{v.date}</span>{v.title}
