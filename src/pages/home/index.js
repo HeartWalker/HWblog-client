@@ -39,6 +39,10 @@ export default class Home extends Component{
         return true;
     }
     handlePageClick = (data) => {
+        /*if(!isNaN(data.selected)){    //reactpaginate 第一次会执行onPageChange事件,添加判断使浏览器显示正确的哈希值
+            this.props.history.push(`/page/1`);
+            return;
+        }*/
         let selected = data.selected + 1;
         this.props.history.push(`/page/${selected}`);
 

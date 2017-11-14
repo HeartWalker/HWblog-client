@@ -21,7 +21,7 @@ import Archives from './pages/archives';
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
 */
-
+//todo 参数匹配不到404页面跳转问题
 
 export default class App extends Component {
 
@@ -34,7 +34,7 @@ export default class App extends Component {
                     <div className='container contain'>
                         <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/page/:num" component={Home}/>
+                        <Route path="/page/:num" component={Home}/>
                         <Route path="/about" component={About}/>
                         <Route path="/topics" component={Topics}/>
                         <Route exact path="/archive" component={Archives}/>
