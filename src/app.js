@@ -12,16 +12,16 @@ import Header from './pages/header';
 import Footer from './pages/footer';
 import Test from './pages/test';
 import About from './pages/about';
-import Home from './pages/home';
+import Home from './pages/home/home';
+import Page from './pages/home/page';
 import Article from './pages/article';
 import Topics from './pages/topics';
 import Archives from './pages/archives';
-
+import NoMatch from './pages/404';
 /*
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
 */
-//todo 参数匹配不到404页面跳转问题
 
 export default class App extends Component {
 
@@ -34,7 +34,7 @@ export default class App extends Component {
                     <div className='container contain'>
                         <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path="/page/:num" component={Home}/>
+                        <Route path="/page/:num" component={Page}/>
                         <Route path="/about" component={About}/>
                         <Route path="/topics" component={Topics}/>
                         <Route exact path="/archive" component={Archives}/>
@@ -48,10 +48,4 @@ export default class App extends Component {
         )
     }
 }
-const NoMatch = ({ location }) => (
-    <div>
-        <h2>404404</h2>
-        <h3>No match for <code>{location.pathname}</code></h3>
-    </div>
-);
 
