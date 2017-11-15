@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPage} from './action';
-import ReactPaginate from 'react-paginate';
-import {withRouter} from "react-router-dom";
 import Content from './content';
+import Pagingation from './pagination';
 
-@withRouter
 @connect(mapStateToProps)
 export default class Page extends Component{
     constructor(props){
@@ -40,15 +38,7 @@ export default class Page extends Component{
 
         return true;
     }
-    handlePageClick = (data) => {
-        if(isNaN(data.selected) || data.selected === 0){    //reactpaginate 第一次会执行onPageChange事件,添加判断使浏览器显示正确的哈希值
-            this.props.history.push(`/`);
-            return;
-        }
-        let selected = data.selected + 1;
-        this.props.history.push(`/page/${selected}`);
 
-    };
     render(){
         return(
             <div>
@@ -58,19 +48,8 @@ export default class Page extends Component{
                     })
                 }
 
-                <ReactPaginate previousLabel={"previous"}
-                               nextLabel={"next"}
-                               breakLabel={<a href="">...</a>}
-                               breakClassName={"break-me"}
-                               pageCount={this.props.pages.length || 0}
-                               marginPagesDisplayed={2}
-                               pageRangeDisplayed={5}
-                               onPageChange={this.handlePageClick}
-                               containerClassName={"pagination"}
-                               subContainerClassName={"pages pagination"}
-                               activeClassName={"active"}
-                               initialPage={this.state.initialPage}
-                />
+                <Pagingation length={this.props.pages.length || 0} initialPage={this.state.initialPage}/>
+
             </div>
         )
     }
